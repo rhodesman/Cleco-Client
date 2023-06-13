@@ -1,0 +1,69 @@
+.downloads {
+	padding:40px 0;
+}
+
+.downloads .container {
+
+	@include respond($breakpoint-downloads) {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+	}
+}
+
+.download {
+	max-width: 370px;
+	padding:16px;
+	text-align: center;	
+	margin-left:auto;
+	margin-right:auto;
+	display: block;
+
+}
+
+.download img {
+}
+
+.download-img {
+	margin:0 auto 32px auto;
+	display: block;
+	img {
+		display: inline-block;
+		//border:3px solid $color-orange;	
+		//border-radius: 2px;
+		box-shadow: 1px 1px 10px rgba(0,1,0,0.34);
+		transition: all 0.2s ease;
+	}
+	&:hover img {
+		box-shadow: 1px 4px 14px rgba(0,1,0,0.54);
+	}
+}
+
+.download-title {
+	font-family: $font-condensed;
+	font-weight: 700;
+	font-size: 2em;
+	line-height: 1.25;
+	letter-spacing: -0.025em;
+	color: $color-orange;
+	text-transform: uppercase;
+	@include respond($breakpoint-type) {
+		font-size:2.25em;
+		line-height: 1;
+	}
+}
+
+
+
+.download-text {
+	color:#58585a;
+	font-family: $font-condensed;
+	letter-spacing: -0.025em;
+	font-size:1.25em;
+	margin:8px 0 0 0;
+	font-weight: 700;
+}
+
+.download-text:hover  {
+	color: $color-orange;
+}

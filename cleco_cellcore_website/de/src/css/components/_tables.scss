@@ -1,0 +1,35 @@
+.responsive-table {
+		position: relative;
+		
+			
+		&.is-scrollable {
+			margin-top: 2em;
+			
+			&:before {
+				opacity: 0.5;
+				transform: translateY( 0 );
+				
+				transition: 0.2s ease;
+			}
+			
+			&:after {
+				content: "";
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				width: 1em;
+				background: linear-gradient( to right, rgba( #000, 0 ), rgba( #000, 0.1 ) );
+			}
+			
+			.responsive-table-inner {
+				padding-right: 2em;
+			}
+		}
+		
+		.responsive-table-inner {			
+			overflow: auto;
+			width: 100%;
+			-webkit-overflow-scrolling: touch;
+		}
+	}

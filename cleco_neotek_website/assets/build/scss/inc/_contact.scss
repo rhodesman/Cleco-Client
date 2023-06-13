@@ -1,0 +1,150 @@
+/*
+ * Learn More
+ */
+.popout-tab {
+    position: fixed;
+    top:35%;
+    right:-100%;
+    display: block;
+    cursor: pointer;
+    &.demo {
+        width: 120px;
+        padding: 20px 10px;
+        text-align: center;
+        color: #fff;
+        background-color: $orange;
+        border-radius: 8px 0 0 8px;
+        box-shadow: 0 0 20px 0 rgba(0,0,0,.3);
+        transition: all 0.5s ease-in-out;
+        text-transform: uppercase;
+        opacity: 0;
+        &:hover {
+            transform: scale(1.3) translateX(-12px);
+            //opacity: 1;
+        }
+    }
+    &.seeme {
+        opacity: 1;
+        right:0!important;
+    }
+    @include media-breakpoint-down(sm) {
+        top:0;
+        right:0;
+        &.demo {
+            width:100%;
+            border-radius: 0;
+            padding: 10px;
+            z-index:1;
+        }
+        &.seeme {
+            top:70px;
+        }
+    }
+}
+#contact {
+    position: relative;
+    background-color: #444547;
+    background-color: rgba(0,0,0,0.75);
+    padding: $commonPad 10px;
+    text-align: center;
+    overflow: hidden;
+    &:after {
+        content:'';
+        display: block;
+        position: absolute;
+        z-index: -1;
+        //width:100%;
+        //height:100%;
+        top:0;
+        left:0;
+        right:0;
+        bottom:0;
+        transform: translateZ(-1px) scale(1.5);
+        background-image: url('/images/contact/Background.jpg');
+        background-size: cover;
+        background-position: 15%;
+    }
+    > div {
+        position: relative;
+        z-index:10;
+    }
+    .form-schedule {
+        padding: 20px 40px 40px 40px;
+    }
+    .form-learn-more {
+        border-top: 2px solid rgba(255, 255, 255, 0.25);
+        padding: 40px;
+        padding-top: 60px;
+        margin-top: 40px;
+    }
+    input {
+        width: 100%;
+        padding: 8px;
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        border-radius: 4px;
+        background-color: rgba(255, 255, 255, 0.2);
+        color: #fff;
+        &::-webkit-input-placeholder {
+        /* Chrome/Opera/Safari */
+        color: rgba(255, 255, 255, 0.8);
+        }
+        &::-moz-placeholder {
+        /* Firefox 19+ */
+        color: rgba(255, 255, 255, 0.8);
+        }
+        &:-ms-input-placeholder {
+        /* IE 10+ */
+        color: rgba(255, 255, 255, 0.8);
+        }
+        &:-moz-placeholder {
+        /* Firefox 18- */
+        color: rgba(255, 255, 255, 0.8);
+        }
+        &[type="checkbox"] {
+            width:auto;
+        }
+    }
+    @include media-breakpoint-down(sm) {
+        .form-check-input {
+            margin-left: 15px;
+        }
+    }
+    h1 {
+        @extend .heveticaNeue-Condenced;
+        font-size: $pixels-70;
+        color: rgba($white, 1);
+        //letter-spacing: .05em;
+        text-shadow: 0px 0px 25px rgba(0, 0, 0, 0.4);
+        margin-bottom: 2rem;
+    }
+    p {
+        @extend .helveticaNeue;
+        color: rgba(255, 255, 255, 0.8);
+        font-size: $pixels-20;
+        line-height: 1.5;
+    }
+    label {
+        display: none;
+        &.form-check-label {
+            display: inline-block;
+            text-align: left;
+            padding-left: 10px;
+            color: rgba(255, 255, 255, 0.8);
+            @include media-breakpoint-down(sm) {
+                padding-left: 40px;
+            }
+        }
+    }
+    .custom-select.is-invalid, .form-control.is-invalid {
+        border: 2px solid red;
+    }
+    .was-validated {
+        .custom-select:invalid, .form-control:invalid {
+        border: 2px solid red;
+        }
+    }
+}
+
+.invalid-feedback {
+  color: #fff;
+}

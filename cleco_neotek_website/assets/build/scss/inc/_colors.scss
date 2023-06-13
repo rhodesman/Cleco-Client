@@ -1,0 +1,44 @@
+/*
+Cleco Colors
+
+Cleco Orange
+- HEX #E35205;
+- RGB 227,82,5
+
+Cleco Black
+- HEX #383739;
+- RGB 57, 56, 57
+
+Cleco Gray 70
+- HEX #6D6E70;
+- RGB 109,110,113
+*/
+
+/*
+ * Cleco Colors
+ */
+$orange:#E35205;
+$black:#383739;
+$gray70:#6D6E70;
+$gray20:#CCCCCC;
+$white:#fff;
+$Bblack:#000;
+
+.orange {
+  color: rgba($orange, 1);
+}
+.bg-orange {
+  background-color: rgba($orange, 1);
+}
+.black {
+  color: rgba($black, 1);
+}
+.bg-black {
+  background-color: rgba($black, 1);
+}
+.gray-70 {
+  color: rgba($gray70, 1);
+}
+.bg-gray-70 {
+  background-color: rgba($gray70, 1);
+}

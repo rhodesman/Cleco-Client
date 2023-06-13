@@ -1,0 +1,60 @@
+.cordless {
+	margin-top:-20px;
+	background-image: url(../images/cordless-bg-v2.jpg);
+	background-repeat: no-repeat;
+	background-position: center top;
+	background-size:cover;
+	background-color:#242526;
+	padding:120px 16px 16px 16px;
+	@include respond($breakpoint-nav) {
+		padding:232px 16px 16px 16px;	
+	}
+	position: relative;
+/*
+	
+*/
+}
+
+.cordless-video {
+	position: relative;
+	max-width: 944px;
+	margin:0 auto;
+	cursor: pointer;
+	&:before {
+		display: block;
+		content: "";
+		width: 100%;
+		padding-top: (237 / 472)  * 100%;
+		background-image:url(../images/cordless-image.png);
+		background-repeat: no-repeat;
+		background-position: center center;
+		background-size:cover;
+	}
+	&:after {
+		content:"";
+		position: absolute;
+		top:50%;
+		left:50%;
+		transform: translate(-50%,-50%);
+		width:68px;
+		height:68px;
+		background-image:url(../svg/play.svg);
+		background-size:100% 100%;
+		background-position: center center;
+		background-repeat: no-repeat;
+		opacity: 0.75;
+		transition: opacity 0.2s ease;
+	}
+	&:hover:after {
+		opacity: 1;
+	}
+	
+	opacity: 0;
+	top:100px;
+	transition: top 0.8s ease, opacity 0.8s ease;
+	&.is-animated {
+		top:0;
+		opacity: 1;
+	}
+}
+

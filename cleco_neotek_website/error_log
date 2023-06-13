@@ -1,0 +1,24 @@
+[28-Feb-2019 17:34:31 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function curl_post() in /home/neotekwmdev/public_html/development/cleco_neotek_website/thankyou/confirm1-de.php:60
+Stack trace:
+#0 {main}
+  thrown in /home/neotekwmdev/public_html/development/cleco_neotek_website/thankyou/confirm1-de.php on line 60
+[28-Feb-2019 17:39:15 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function curl_post() in /home/neotekwmdev/public_html/development/cleco_neotek_website/thankyou/confirm1-de.php:60
+Stack trace:
+#0 {main}
+  thrown in /home/neotekwmdev/public_html/development/cleco_neotek_website/thankyou/confirm1-de.php on line 60
+[28-Feb-2019 17:39:19 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function curl_post() in /home/neotekwmdev/public_html/development/cleco_neotek_website/thankyou/confirm1-de.php:60
+Stack trace:
+#0 {main}
+  thrown in /home/neotekwmdev/public_html/development/cleco_neotek_website/thankyou/confirm1-de.php on line 60
+[28-Feb-2019 17:58:57 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function clean_string() in /home/neotekwmdev/public_html/development/cleco_neotek_website/thankyou/confirm1-de.php:47
+Stack trace:
+#0 {main}
+  thrown in /home/neotekwmdev/public_html/development/cleco_neotek_website/thankyou/confirm1-de.php on line 47
+[28-Feb-2019 18:39:00 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function clean_string() in /home/neotekwmdev/public_html/development/cleco_neotek_website/thankyou/confirm1-de.php:45
+Stack trace:
+#0 {main}
+  thrown in /home/neotekwmdev/public_html/development/cleco_neotek_website/thankyou/confirm1-de.php on line 45
+[28-Feb-2019 20:28:34 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function died() in /home/neotekwmdev/public_html/development/cleco_neotek_website/thankyou/confirm1-de.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/neotekwmdev/public_html/development/cleco_neotek_website/thankyou/confirm1-de.php on line 34

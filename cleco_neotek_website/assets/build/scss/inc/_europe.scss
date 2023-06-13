@@ -1,0 +1,50 @@
+body#europe {
+  .learn-more {
+      .gdpr-checkbox label {
+          display: inline;
+      }
+      .gdpr-checkbox {
+          color: #fff;
+          font-size: .9rem;
+          padding: 10px 0;
+          max-width: 600px;
+          margin: 0 auto;
+      }
+      .gdpr-checkbox input[type="checkbox"] {
+          zoom: 1.75;
+          display: inline;
+          vertical-align: middle;
+          position: relative;
+      }
+      form {
+        input {
+          border-radius: 0.25rem;
+        }
+        div[rel="checkbox"] {
+          text-align: center;
+          div {
+            text-align: center;
+            color:$white;
+            input {
+              margin:0.5rem;
+            }
+          }
+        }
+        .copy {
+          p {
+            text-align: left;
+            font-size: 12px;
+          }
+        }
+        .g-recaptcha > div {
+          margin: 0 auto;
+        }
+        .submit_container {
+          text-align:center;
+        }
+        .btn {
+              border-radius: 0.25rem;
+        }
+      }
+  }
+}

@@ -1,0 +1,144 @@
+// -----------------------------------------------------------------------------
+//! Modal Styling
+// -----------------------------------------------------------------------------
+
+.modal-overlay {
+	display: none;
+	position: fixed;
+	top:0;
+	bottom:0;
+	left:0;
+	right:0;
+	background: rgba(0,0,0,0.80);
+	z-index: $z_index-level6 + 11;
+	opacity: 0;	
+}
+
+.modal-wrapper {
+	position: fixed;
+	padding:10px 10px 0 10px;
+	top:0;
+	right:0;
+	bottom:0;
+	left:0;
+	z-index: $z_index-level6 + 12;
+	overflow: auto;
+	display: none;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	opacity: 0;
+}
+
+.modal {
+	position: relative;
+	margin-bottom:10px;
+	max-width: 896px;
+	width:100%;	
+	text-align: right;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+
+body.has-modal {
+	.modal-overlay {
+		display: block;
+	}
+	.modal-wrapper{
+		display: flex;
+	}
+}
+
+
+// -----------------------------------------------------------------------------
+//! Modal Innards
+// -----------------------------------------------------------------------------
+
+.modal-inner-wrap {
+	padding:16px;
+	overflow: hidden;
+}
+
+.modal-content {
+	width:100%;
+	img {
+		width:100%;
+		height:auto;
+	}
+}
+
+.modal-video-container {
+	position: relative; 
+	padding-bottom: 56.25%; 
+	height: 0; 
+	overflow: hidden; 
+	max-width: 100%; 
+	iframe, embed {
+		 position: absolute; 
+		 top: 0; 
+		 left: 0; 
+		 width: 100%; 
+		 height: 100%; 
+	}
+}
+
+
+
+// -----------------------------------------------------------------------------
+//! Modal Close
+// -----------------------------------------------------------------------------
+
+
+.modal-close {
+	border:none;
+	background: transparent;
+	position: absolute;
+	height:26px;
+	width:26px;
+	top:24px;
+	right:24px;
+	z-index: $z-index-level2;
+	transform: rotate(45deg);
+	transition:all 0.2s ease-in-out;
+	cursor: pointer;
+}
+.modal-close:hover {
+	transform: rotate(225deg);
+}
+.modal-close:focus {
+	outline: none;
+}
+.modal-close:before,
+.modal-close:after {
+	content:"";
+	background: #fff;
+	border-radius:4px;
+	position: absolute;
+	left:50%;
+	top:50%;
+	transform: translate(-50%,-50%);
+}
+
+.modal-close:before {
+	width:26px;
+	height:3px;
+}
+
+.modal-close:after {
+	height:26px;
+	width:3px;
+}
+
+
+// -----------------------------------------------------------------------------
+//! DEV!!
+// -----------------------------------------------------------------------------
+/*
+.modal-wrapper,
+.modal-overlay {
+	display: flex;
+}
+*/
+
+

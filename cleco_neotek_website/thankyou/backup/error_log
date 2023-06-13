@@ -1,0 +1,86 @@
+[28-Feb-2019 17:34:31 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function curl_post() in /home/neotekwmdev/public_html/development/cleco_neotek_website/thankyou/confirm1-de.php:60
+Stack trace:
+#0 {main}
+  thrown in /home/neotekwmdev/public_html/development/cleco_neotek_website/thankyou/confirm1-de.php on line 60
+[28-Feb-2019 17:39:15 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function curl_post() in /home/neotekwmdev/public_html/development/cleco_neotek_website/thankyou/confirm1-de.php:60
+Stack trace:
+#0 {main}
+  thrown in /home/neotekwmdev/public_html/development/cleco_neotek_website/thankyou/confirm1-de.php on line 60
+[28-Feb-2019 17:39:19 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function curl_post() in /home/neotekwmdev/public_html/development/cleco_neotek_website/thankyou/confirm1-de.php:60
+Stack trace:
+#0 {main}
+  thrown in /home/neotekwmdev/public_html/development/cleco_neotek_website/thankyou/confirm1-de.php on line 60
+[28-Feb-2019 17:58:57 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function clean_string() in /home/neotekwmdev/public_html/development/cleco_neotek_website/thankyou/confirm1-de.php:47
+Stack trace:
+#0 {main}
+  thrown in /home/neotekwmdev/public_html/development/cleco_neotek_website/thankyou/confirm1-de.php on line 47
+[28-Feb-2019 18:39:00 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function clean_string() in /home/neotekwmdev/public_html/development/cleco_neotek_website/thankyou/confirm1-de.php:45
+Stack trace:
+#0 {main}
+  thrown in /home/neotekwmdev/public_html/development/cleco_neotek_website/thankyou/confirm1-de.php on line 45
+[28-Feb-2019 20:28:34 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function died() in /home/neotekwmdev/public_html/development/cleco_neotek_website/thankyou/confirm1-de.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/neotekwmdev/public_html/development/cleco_neotek_website/thankyou/confirm1-de.php on line 34
+[04-Mar-2019 21:07:06 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function died() in /home/neotekwmdev/public_html/development/cleco_neotek_website/thankyou/confirm1-de.php:90
+Stack trace:
+#0 {main}
+  thrown in /home/neotekwmdev/public_html/development/cleco_neotek_website/thankyou/confirm1-de.php on line 90
+[04-Mar-2019 21:13:04 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function died() in /home/neotekwmdev/public_html/development/cleco_neotek_website/thankyou/confirm1-de.php:108
+Stack trace:
+#0 {main}
+  thrown in /home/neotekwmdev/public_html/development/cleco_neotek_website/thankyou/confirm1-de.php on line 108
+[04-Mar-2019 21:14:52 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function died() in /home/neotekwmdev/public_html/development/cleco_neotek_website/thankyou/confirm1-de.php:108
+Stack trace:
+#0 {main}
+  thrown in /home/neotekwmdev/public_html/development/cleco_neotek_website/thankyou/confirm1-de.php on line 108
+[04-Mar-2019 21:18:28 UTC] PHP Parse error:  syntax error, unexpected '}', expecting end of file in /home/neotekwmdev/public_html/development/cleco_neotek_website/thankyou/confirm1-de.php on line 253
+[04-Mar-2019 21:18:33 UTC] PHP Parse error:  syntax error, unexpected '}', expecting end of file in /home/neotekwmdev/public_html/development/cleco_neotek_website/thankyou/confirm1-de.php on line 253
+[16-Mar-2019 01:30:59 UTC] PHP Fatal error:  Uncaught Exception: 400;Bad Request: invalid address '' in /home/neotekwmdev/public_html/development/cleco_neotek_website/thankyou/rest_client.php:270
+Stack trace:
+#0 /home/neotekwmdev/public_html/development/cleco_neotek_website/thankyou/rest_client.php(170): CR\tools\rest->returnResult('{"error":{"code...', Array)
+#1 /home/neotekwmdev/public_html/development/cleco_neotek_website/thankyou/confirm1-de.php(68): CR\tools\rest->post('/groups.json/23...', Array)
+#2 {main}
+  thrown in /home/neotekwmdev/public_html/development/cleco_neotek_website/thankyou/rest_client.php on line 270
+[16-Mar-2019 01:36:23 UTC] PHP Fatal error:  Uncaught Exception: 400;Bad Request: invalid address '' in /home/neotekwmdev/public_html/development/cleco_neotek_website/thankyou/rest_client.php:270
+Stack trace:
+#0 /home/neotekwmdev/public_html/development/cleco_neotek_website/thankyou/rest_client.php(170): CR\tools\rest->returnResult('{"error":{"code...', Array)
+#1 /home/neotekwmdev/public_html/development/cleco_neotek_website/thankyou/confirm1-de.php(68): CR\tools\rest->post('/groups.json/23...', Array)
+#2 {main}
+  thrown in /home/neotekwmdev/public_html/development/cleco_neotek_website/thankyou/rest_client.php on line 270
+[16-Mar-2019 01:41:58 UTC] PHP Fatal error:  Uncaught Exception: 400;Bad Request: invalid address '' in /home/neotekwmdev/public_html/development/cleco_neotek_website/thankyou/rest_client.php:270
+Stack trace:
+#0 /home/neotekwmdev/public_html/development/cleco_neotek_website/thankyou/rest_client.php(170): CR\tools\rest->returnResult('{"error":{"code...', Array)
+#1 /home/neotekwmdev/public_html/development/cleco_neotek_website/thankyou/confirm1-de.php(68): CR\tools\rest->post('/groups.json/23...', Array)
+#2 {main}
+  thrown in /home/neotekwmdev/public_html/development/cleco_neotek_website/thankyou/rest_client.php on line 270
+[16-Mar-2019 01:47:34 UTC] PHP Fatal error:  Uncaught Exception: 400;Bad Request: duplicate address 'jrhodes@webbmason.com' in /home/neotekwmdev/public_html/development/cleco_neotek_website/thankyou/rest_client.php:270
+Stack trace:
+#0 /home/neotekwmdev/public_html/development/cleco_neotek_website/thankyou/rest_client.php(170): CR\tools\rest->returnResult('{"error":{"code...', Array)
+#1 /home/neotekwmdev/public_html/development/cleco_neotek_website/thankyou/confirm1-de.php(68): CR\tools\rest->post('/groups.json/23...', Array)
+#2 {main}
+  thrown in /home/neotekwmdev/public_html/development/cleco_neotek_website/thankyou/rest_client.php on line 270
+[16-Mar-2019 01:48:40 UTC] PHP Fatal error:  Uncaught Exception: 400;Bad Request: duplicate address 'jason.rhodes@gmail.com' in /home/neotekwmdev/public_html/development/cleco_neotek_website/thankyou/rest_client.php:270
+Stack trace:
+#0 /home/neotekwmdev/public_html/development/cleco_neotek_website/thankyou/rest_client.php(170): CR\tools\rest->returnResult('{"error":{"code...', Array)
+#1 /home/neotekwmdev/public_html/development/cleco_neotek_website/thankyou/confirm1-de.php(68): CR\tools\rest->post('/groups.json/23...', Array)
+#2 {main}
+  thrown in /home/neotekwmdev/public_html/development/cleco_neotek_website/thankyou/rest_client.php on line 270
+[18-Mar-2019 14:11:27 UTC] PHP Fatal error:  Uncaught Exception: 400;Bad Request: duplicate address 'test59@webbmason.com' in /home/neotekwmdev/public_html/development/cleco_neotek_website/thankyou/rest_client.php:270
+Stack trace:
+#0 /home/neotekwmdev/public_html/development/cleco_neotek_website/thankyou/rest_client.php(170): CR\tools\rest->returnResult('{"error":{"code...', Array)
+#1 /home/neotekwmdev/public_html/development/cleco_neotek_website/thankyou/confirm1-de.php(68): CR\tools\rest->post('/groups.json/23...', Array)
+#2 {main}
+  thrown in /home/neotekwmdev/public_html/development/cleco_neotek_website/thankyou/rest_client.php on line 270
+[18-Mar-2019 14:11:46 UTC] PHP Fatal error:  Uncaught Exception: 400;Bad Request: duplicate address 'test59@webbmason.com' in /home/neotekwmdev/public_html/development/cleco_neotek_website/thankyou/rest_client.php:270
+Stack trace:
+#0 /home/neotekwmdev/public_html/development/cleco_neotek_website/thankyou/rest_client.php(170): CR\tools\rest->returnResult('{"error":{"code...', Array)
+#1 /home/neotekwmdev/public_html/development/cleco_neotek_website/thankyou/confirm1-de.php(68): CR\tools\rest->post('/groups.json/23...', Array)
+#2 {main}
+  thrown in /home/neotekwmdev/public_html/development/cleco_neotek_website/thankyou/rest_client.php on line 270
+[20-May-2019 19:21:41 UTC] PHP Fatal error:  Uncaught Exception: 400;Bad Request: duplicate address 'jrhodes@webbmason.com' in /home/neotekwmdev/public_html/development/cleco_neotek_website/thankyou/rest_client.php:270
+Stack trace:
+#0 /home/neotekwmdev/public_html/development/cleco_neotek_website/thankyou/rest_client.php(170): CR\tools\rest->returnResult('{"error":{"code...', Array)
+#1 /home/neotekwmdev/public_html/development/cleco_neotek_website/thankyou/confirm1-de.php(68): CR\tools\rest->post('/groups.json/23...', Array)
+#2 {main}
+  thrown in /home/neotekwmdev/public_html/development/cleco_neotek_website/thankyou/rest_client.php on line 270

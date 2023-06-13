@@ -1,0 +1,546 @@
+.product-display {
+    position: relative;
+    //max-height: 800px;
+    min-height:500px;
+    overflow: hidden;
+    height: 90vh;
+    max-width: 1200px;
+    @include media-breakpoint-down(sm) {
+        min-height:auto;
+    }
+}
+@include keyframes(pulse) {
+  0% { box-shadow:0px 0px 0px 0px rgba($orange,1); }
+  100% { box-shadow:0px 0px 0px 10px rgba($orange,0); }
+}
+.cd-product-viewer-wrapper {
+    //transform: scale(0.7);
+    position: absolute;
+    height: 100%;
+    left:100%;
+    cursor: pointer;
+    .product-viewer {
+        //position: relative;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        overflow: hidden;
+       // height: 90%;
+        //min-height: 400px;
+        
+    }
+    > div {
+        position: relative;
+        width:100%;
+        padding-top:61.40%;
+        //height: 100%;
+        margin:0;
+    }
+    .hotspot-modal {
+        position: absolute;
+        top:50%;
+        left:50%;
+        padding:1px;
+        background-color: $black;
+        background-size: cover;
+        background-position: center center;
+        border: 4px solid rgba($orange, 1);
+        max-width:600px;
+        opacity: 0;
+        transform: scaleY(0) translate(-50%,-50%);
+        z-index:20;
+        @include media-breakpoint-down(xs) { 
+            position:fixed;
+        }
+        video {
+            display: block;
+            max-width: 100%;
+        }
+        p {
+            display: block;
+            padding: 15px;
+            margin:0;
+            //font-family: "Helvetica Neue LT W02_65 Md";
+            @extend .helvetica-heavy;
+            color:$white;
+            font-size: $pixels-16;
+            line-height: 1.4em;
+            //white-space: nowrap;
+            overflow: hidden;
+            strong {
+                font-family: "Helvetica Neue LT W02_77 Bd Cn";
+                font-weight: normal;
+                font-size: 1rem;
+            }
+            span {
+                display:block;
+                @extend .helveticaNeue;
+            }
+            sub {
+                @extend .helveticaNeue;
+                font-size: $pixels-14;
+            }
+            @include media-breakpoint-down(xs) { 
+                font-size: $pixels-14;
+                span {
+                    font-size: $pixels-8;
+                }
+                sub {
+                    font-size: $pixels-8;
+                }
+            }
+        }
+        &.none {
+            width:auto;
+            min-height:100px;
+            p {
+                padding-top:30px;
+            }
+        }
+        .non-video {
+            opacity: 1;
+            width:100%;
+        }
+        .replay {
+            position: absolute;
+            display: inline-block;
+            padding:0.5rem;
+            left:50%;
+            bottom:40%;
+            transform: translateX(-50%);
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 6px;
+            color:rgba($white,1);
+            opacity: 1;
+            transition: all 0.5s ease-in-out;
+            &:before {
+                content: '\f2f9';
+                display:block;
+                text-align: center;
+                @extend .fas;
+            }
+            &.hide-me {
+                opacity: 0;
+            }
+        }
+        .close {
+            font-size: 1rem;
+            color: #fff;
+            text-shadow: none;
+            padding: 10px;
+            &:hover {
+                color:#fff !important;
+            }
+        }
+        &.view-spot {
+            opacity: 1;
+            transform: scaleY(1) translate(-50%,-50%);
+            box-shadow: 0px 0px 23px 0px rgba($black,.25);
+        }
+    }
+    img {
+        /* this is the image visible before the image sprite is loaded */
+        display: block;
+        position: relative;
+        z-index: 1;
+        width:auto;
+        height:100%;
+        opacity: 0;
+    }
+    .product-sprite {
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        left: 0;
+        height: 100%;
+        /* our image sprite is composed of 16 frames */
+        background-size: 100%;
+        opacity: 0;
+        cursor: grab;
+        transition: opacity 0.3s;
+        &:active {
+            cursor: grabbing;
+        }
+    }
+    label {
+        position: absolute;
+        z-index: 10;
+        margin: 0 auto;
+        height:0;
+        transition: all .5s ease;
+        &.show-me {
+            transition-delay:0.05s;
+        }
+        &:before {
+            content:'';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            top: 10px;
+            left: 10px;
+            text-align: center;
+            background-color: rgba($orange, 1);
+            border: 2px solid $white;
+            color: $white;
+            border-radius: 100%;
+            cursor: pointer;
+            opacity: 0.75;
+            transition: all .3s ease;
+            @include animation('pulse 1.25s infinite cubic-bezier(0.66, 0, 0, 1)');
+            @include media-breakpoint-down(sm) { 
+                transform: translate(-15px,-15px);
+            }
+        }
+        > div {
+            position: relative;
+            margin-top:-25%;
+            margin-left:55px;
+            margin-bottom: 4px;
+            padding:1px;
+            background-color: $black;
+            background-size: cover;
+            background-position: center center;
+            border: 4px solid rgba($orange, 1);
+            max-width:600px;
+            opacity: 0;
+            transform: scaleY(0);
+            video {
+                display: block;
+                max-width: 100%;
+            }
+            .replay {
+                position: absolute;
+                display: inline-block;
+                padding:0.5rem;
+                left:50%;
+                bottom:40%;
+                transform: translateX(-50%);
+                background-color: rgba(255,255,255,0.1);
+                border-radius: 6px;
+                color:rgba($white,1);
+                opacity: 1;
+                transition: all 0.5s ease-in-out;
+                &:before {
+                    content: '\f2f9';
+                    display:block;
+                    text-align: center;
+                    @extend .fas;
+                }
+                &.hide-me {
+                    opacity: 0;
+                }
+            }
+            .close {
+                font-size: 1rem;
+                color: #fff;
+                text-shadow: none;
+                padding: 10px;
+                &:hover {
+                    color:#fff !important;
+                }
+            }
+        }
+        p {
+            display: block;
+            padding: 15px;
+            margin:0;
+            font-family: "Helvetica Neue LT W02_65 Md";
+            color:$white;
+            font-size: .9rem;
+            line-height: 1.4em;
+            white-space: nowrap;
+            overflow: hidden;
+            strong {
+                font-family: "Helvetica Neue LT W02_77 Bd Cn";
+                font-weight: normal;
+                font-size: 1rem;
+            }
+            sub {
+                display:block;
+            }
+        }
+        &.view-spot {
+            > div {
+                opacity: 1;
+                transform: scaleY(1);
+                box-shadow: 0px 0px 23px 0px rgba($black,.25);
+            }
+            &:before {
+                animation-iteration-count:0;
+                transform:scale(1.5);
+                background-color: $white;
+                border: 4px solid rgba($orange, 1);
+            }
+        }
+        &.right {
+            &:before {
+                left:auto;
+                right:10px;
+            }
+            > div {
+                margin-right:55px;
+                margin-left:-55px;
+            }
+        }
+        &.top {
+            > div {
+                margin-top:-70%;
+                margin-left:-50%;
+            }
+        }
+        &.bottom {
+            > div {
+                //margin-top:20%;
+                margin-left:-50%;
+            }
+        }
+        &:hover {
+            &:before {
+                opacity: 1;
+                transform: scale(1.2);
+            }
+        }
+        @include media-breakpoint-down(sm) {
+            > div {
+                position: fixed;
+                left:0;
+                right:0;
+                top:50%;
+                margin-left: 0;
+                margin-right:0;
+            }
+            &.right {
+                > div {
+                    margin-left: 0;
+                    margin-right:0;
+                }
+            }
+        }
+    }
+    &.loaded {
+        .product-sprite {
+            /* image sprite has been loaded */
+            opacity: 1;
+        }
+    }
+    &.active {
+        //@extend .col-6;
+        //transform: scale(1);
+        left:0;
+        @include media-breakpoint-down(sm) {
+            padding:0;
+        }
+    }
+    &#rightAngle {
+        .product-sprite {
+            width: 2800%;
+            background-image: url(/360_assets/NeoTek_RightAngle30_360-sprite.jpg);
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+    }
+    &#pistol-1 {
+        .product-sprite {
+            width: 1200%;
+            background-image: url(/360_assets/NeoTek_LrgPistol_360-sprite.jpg);
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+    }
+    &#inline {
+        .product-sprite {
+            width: 1200%;
+            background-image: url(/360_assets/NeoTek_LrgInLine_360-sprite.jpg);
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+    }
+}
+.viewer-control {
+    display: flex;
+    padding: 2em 0;
+    align-items: center;
+    justify-content: center;
+    ul {
+        margin: 0 auto;
+        padding:0;
+        text-align: center;
+        @include media-breakpoint-down(sm) {
+                width:100%;
+                text-align: center;
+        }
+        li {
+            //display: inline-block;
+            list-style: none;
+            padding:5px 15px;
+            @include media-breakpoint-down(sm) {
+                width:32%;
+                padding:0;
+            }
+            a {
+                display:block;
+                position: relative;
+                font-size: $pixels-24;
+                color: $black;
+                @include media-breakpoint-down(sm) {
+                    font-size: $pixels-14;
+                }
+                &:before {
+                    content:'';
+                    display: block;
+                    height:80px;
+                    width:100%;
+                    background-size: contain;
+                    background-position: center bottom;
+                    background-repeat: no-repeat;
+                }
+                &:after {
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    left:50%;
+                    transform: translateX(-50%);
+                    bottom:35px;
+                    width:50%;
+                    height: 1px;
+                    background-color: rgba(0, 0, 0, 0);
+                    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0);
+                }
+                &:before, &:after {
+                    transition: all 0.3s ease-in-out;
+                }
+                &[href="#rightAngle"]:before {
+                    background-image: url('/images/NeoTek_RAngle_thumb.png');
+                }
+                &[href="#pistol-1"]:before {
+                    background-image: url('/images/NeoTek_Pistol_thumb.png');
+                }
+                &[href="#inline"]:before {
+                    background-image: url('/images/NeoTek_InLine_thumb.png');
+                    transform: scaleY(-1);
+                    background-position: center top;
+                }
+                &:hover {
+                    &:before {
+                        background-position: center top;
+                    }
+                    &[href="#inline"]:before {
+                        background-position: center bottom;
+                    }
+                    &:after {
+                        background-color: rgba(0, 0, 0, 0.04);
+                        box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.38);
+                    }
+                }
+            }
+            &.active {
+                border-bottom: 2px solid $orange;
+            }
+        }
+    }
+}
+/**** HANDLE STYLES ****/
+.cd-product-viewer-handle {
+    position: relative;
+    z-index: 2;
+    width: 60%;
+    max-width: 300px;
+    height: 4px;
+    border-radius: 2px;
+    background: #4d4d4d;
+    //margin-top: -50px;
+    margin-left: auto;
+    margin-right:auto;
+    &:after {
+            content: '';
+            display: block;
+            position: absolute;
+            top:15px;
+            left:50%;
+            transform: translateX(-50%);
+            background-image: url('../../images/360.png');
+            background-repeat: no-repeat;
+            background-size: contain;
+            width:70px;
+            height:25px;
+        }
+    .fill {
+        /* this is used to create the loading fill effect */
+        position: absolute;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        border-radius: inherit;
+        background: $orange;
+        transform: scaleX(0);
+        transform-origin: left center;
+        transition: transform 0.5s;
+    }
+    .handle {
+        position: absolute;
+        z-index: 2;
+        display: inline-block;
+        height: 22px;
+        width: 44px;
+        left: 0;
+        top: -10px;
+        background: $orange;
+        border: 3px solid $white;
+        border-radius: 11px;
+        transform: translateX(-50%) scale(0);
+        overflow:hidden;
+        text-indent: 1000px;
+        &:before {
+            content: '||';
+            position: absolute;
+            color:$white;
+            display: block;
+            width:100%;
+            text-align: center;
+            text-indent: 0;
+            line-height: 2;
+            font-size:0.5rem;
+        }
+    }
+    @include media-breakpoint-down(sm) {
+        margin-top:-25px;
+    }
+}
+.loaded {
+    .cd-product-viewer-handle {
+        .fill {
+            /* image sprite has been loaded */
+            opacity: 0;
+        }
+        .handle {
+            /* image sprite has been loaded */
+            transform: translateX(-50%) scale(1);
+            animation: cd-bounce 0.3s 0.3s;
+            animation-fill-mode: both;
+        }
+    }
+}
+
+@keyframes cd-bounce {
+  0% {
+    transform: translateX(-50%) scale(0);
+  }
+  60% {
+    transform: translateX(-50%) scale(1.1);
+  }
+  100% {
+    transform: translateX(-50%) scale(1);
+  }
+}
+@include media-breakpoint-down(md) {
+    .product-display {
+        height:70vh;
+    }
+    .viewer-control ul li {
+        display: inline-block;
+    }
+}

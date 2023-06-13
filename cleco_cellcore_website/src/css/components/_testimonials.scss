@@ -1,0 +1,113 @@
+.testimonials {
+	//background: $color-orange;
+	margin-top:-40px;
+	background:#242526;
+	padding:40px 0;
+	position: relative;
+	@include respond($breakpoint-nav) {
+		padding:80px 0 96px 0;	
+	}
+}
+
+.testimonials-title {
+	color:#fff;
+	text-transform: uppercase;
+	font-size:2em;
+	line-height: 1.25;
+	font-family: $font-condensed;
+	text-align: center;
+	@include respond($breakpoint-type) {
+		font-size:2.5em;
+		line-height: 1.2;
+	}
+}
+
+.testimonials-slider {
+	margin:32px 0 0 0;
+}
+
+.slide-inner {
+	width:100%;
+	padding:0 40px;
+	@include respond($breakpoint-testimonial-stack) {
+		display: flex;
+		align-items: flex-start;
+		justify-content: space-between;	
+	}
+	@include respond($breakpoint-nav) {
+		padding:0 80px;
+	}
+}
+
+.slide-left {
+	@include respond($breakpoint-testimonial-stack) {
+		width:50%;
+		flex: 1 1 50%;
+		padding:0 32px 0 0;	
+	}
+	@include respond($breakpoint-nav) {
+		padding:0 80px 0 0;
+	}
+}
+
+.slide-right {
+	border:1px solid #fff;	
+	
+	@include respond($breakpoint-testimonial-stack) {
+		max-width: 460px;
+	 	width:50%;		
+	 	flex: 1 1 50%;		
+	}
+}
+
+.testimonials-quote {
+	color:#fff;
+	font-weight: 300;
+	letter-spacing: -0.015em;
+	font-size:1.5em;
+	line-height: 1.2352941176;
+	border-bottom:1px solid rgba(255,255,255,.3);
+	margin:0;
+	padding:0 0 32px 0;
+	margin:0 0 16px 0;
+	@include respond($breakpoint-nav) {
+		font-size:2.125em;	
+	}
+}
+
+.testimonials-attribution {
+	font-family: $font-condensed;
+	font-weight: 700;
+	color:$color-orange;
+	font-size:1em;
+	line-height: 1.5;
+	text-transform: uppercase;
+	span {
+		color:#fff;
+		font-weight: 300;
+		font-family: $font;
+		display: block;
+	}
+}
+
+.slick-arrow {
+	position: absolute;
+	top:50%;
+	cursor: pointer;
+	width:13px;
+	height:24px;
+	transform: translateY(-12px);
+	background-color: transparent;
+	background-size:13px 24px;
+	background-position: center center;
+	background-repeat: no-repeat;
+	z-index: $z_index-level2;
+	&.slick-prev {
+		left:0;
+		background-image:url(../images/left-arrow.png);
+	}
+	&.slick-next {
+		right:0;
+		background-image:url(../images/right-arrow.png);
+	}
+}

@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<config>
+  <settings>
+    <preloader image="images/frame_0000_frame1.jpg.jpg" />
+    <userInterface showZoomButtons="true" showToolTips="true" showHotspotsButton="true" showFullScreenButton="true" showTogglePlayButton="true" showArrows="true" toolbarAlign="center" toolbarBackColor="transparent" toolbarHoverColor="#808285" toolbarForeColor="#A7A9AE" toolbarBackAlpha="0" toolbarAlpha="1" showProgressNumbers="true" showFullScreenToolbar="false" fullScreenBackColor="#FFFFFF" toolbarPosition="0" customCursorClass="default_cursor" viewerHint="" />
+    <control dragSpeed="0.13" doubleClickZooms="true" disableMouseControl="false" showHighresOnFullScreen="true" mouseHoverDrag="false" hideHotspotsOnLoad="false" hideHotspotsOnZoom="true" rowSensitivity="15" dragSensitivity="10" inBrowserFullScreen="false" doubleClickFullscreen="false" zoomSteps="1" zoomSpeed="300" singleClickZooms="false" pauseOnPreload="false" resumePreloadOnHover="false" />
+    <rotation firstImage="0" rotate="false" rotatePeriod="7" bounce="false" rotateDirection="-1" forceDirection="false" inertiaRelToDragSpeed="true" inertiaTimeToStop="700" inertiaMaxInterval="120" useInertia="true" flipHorizontalInput="false" flipVerticalInput="false" bounceRows="true" rowsOnSingleIndex="false" flipAxis="false" />
+  </settings>
+  <hotspots>
+    <hotspot id="spot1" renderMode="0" indicatorImage="hotspot.svg" effects="scaleUp" margin="0,0,0,0" align="top,center">
+      <spotinfo>
+        <cdata><![CDATA[<b>This is some test copy.  To test the hotspots.</b>]]></cdata>
+      </spotinfo>
+    </hotspot>
+    <hotspot id="spot2" renderMode="0" indicatorImage="hotspot.svg" effects="scaleUp" margin="0,0,0,0" align="top,center">
+      <spotinfo>
+        <cdata><![CDATA[<b>This is some test copy.  To test the hotspots.</b>]]></cdata>
+      </spotinfo>
+    </hotspot>
+    <hotspot id="spot3" renderMode="0" indicatorImage="hotspot.svg" effects="scaleUp" margin="0,0,0,0" align="top,center">
+      <spotinfo>
+        <cdata><![CDATA[<b>This is some test copy.  To test the hotspots.</b>]]></cdata>
+      </spotinfo>
+    </hotspot>
+    <hotspot id="spot4" renderMode="0" indicatorImage="hotspot.svg" effects="scaleUp" margin="0,0,0,0" align="top,center">
+      <spotinfo>
+        <cdata><![CDATA[<b>This is some test copy.  To test the hotspots.</b>]]></cdata>
+      </spotinfo>
+    </hotspot>
+  </hotspots>
+  <images rows="1">
+    <image src="images/frame_0000_frame1.jpg.jpg">
+      <highres src="images/highres/frame_0000_frame1.jpg.jpg" />
+    </image>
+    <image src="images/frame_0001_frame2.jpg.jpg">
+      <highres src="images/highres/frame_0001_frame2.jpg.jpg" />
+    </image>
+    <image src="images/frame_0002_frame3.jpg.jpg">
+      <highres src="images/highres/frame_0002_frame3.jpg.jpg" />
+    </image>
+    <image src="images/frame_0003_frame4.jpg.jpg">
+      <highres src="images/highres/frame_0003_frame4.jpg.jpg" />
+    </image>
+    <image src="images/frame_0004_frame5.jpg.jpg">
+      <hotspot source="spot1" offsetX="121" offsetY="68" />
+      <highres src="images/highres/frame_0004_frame5.jpg.jpg" />
+    </image>
+    <image src="images/frame_0005_frame6.jpg.jpg">
+      <highres src="images/highres/frame_0005_frame6.jpg.jpg" />
+    </image>
+    <image src="images/frame_0006_frame7.jpg.jpg">
+      <highres src="images/highres/frame_0006_frame7.jpg.jpg" />
+    </image>
+    <image src="images/frame_0007_frame8.jpg.jpg">
+      <highres src="images/highres/frame_0007_frame8.jpg.jpg" />
+    </image>
+    <image src="images/frame_0008_frame9.jpg.jpg">
+      <hotspot source="spot3" offsetX="92" offsetY="334" />
+      <highres src="images/highres/frame_0008_frame9.jpg.jpg" />
+    </image>
+    <image src="images/frame_0009_frame10.jpg.jpg">
+      <highres src="images/highres/frame_0009_frame10.jpg.jpg" />
+    </image>
+    <image src="images/frame_0010_frame11.jpg.jpg">
+      <highres src="images/highres/frame_0010_frame11.jpg.jpg" />
+    </image>
+    <image src="images/frame_0011_frame12.jpg.jpg">
+      <highres src="images/highres/frame_0011_frame12.jpg.jpg" />
+    </image>
+    <image src="images/frame_0012_frame13.jpg.jpg">
+      <highres src="images/highres/frame_0012_frame13.jpg.jpg" />
+    </image>
+    <image src="images/frame_0013_frame14.jpg.jpg">
+      <hotspot source="spot4" offsetX="83" offsetY="195" />
+      <highres src="images/highres/frame_0013_frame14.jpg.jpg" />
+    </image>
+    <image src="images/frame_0014_frame15.jpg.jpg">
+      <highres src="images/highres/frame_0014_frame15.jpg.jpg" />
+    </image>
+    <image src="images/frame_0015_frame16.jpg.jpg">
+      <highres src="images/highres/frame_0015_frame16.jpg.jpg" />
+    </image>
+    <image src="images/frame_0016_frame17.jpg.jpg">
+      <highres src="images/highres/frame_0016_frame17.jpg.jpg" />
+    </image>
+    <image src="images/frame_0017_frame18.jpg.jpg">
+      <hotspot source="spot2" offsetX="147" offsetY="221" />
+      <highres src="images/highres/frame_0017_frame18.jpg.jpg" />
+    </image>
+    <image src="images/frame_0018_frame19.jpg.jpg">
+      <highres src="images/highres/frame_0018_frame19.jpg.jpg" />
+    </image>
+    <image src="images/frame_0019_frame20.jpg.jpg">
+      <highres src="images/highres/frame_0019_frame20.jpg.jpg" />
+    </image>
+    <image src="images/frame_0020_frame21.jpg.jpg">
+      <highres src="images/highres/frame_0020_frame21.jpg.jpg" />
+    </image>
+  </images>
+</config>

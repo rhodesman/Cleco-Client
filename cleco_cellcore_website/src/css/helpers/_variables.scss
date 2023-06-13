@@ -1,0 +1,52 @@
+// -----------------------------------------------------------------------------
+//! Fonts
+// -----------------------------------------------------------------------------
+
+$font: 'Helvetica Neue', Arial, Helvetica, Sans-serif;
+$font-condensed: 'Helvetica Neue Condensed', Arial, Helvetica, Sans-serif;
+
+// -----------------------------------------------------------------------------
+//! Colors
+// -----------------------------------------------------------------------------
+
+$color-body: 	#333333;
+$color-dark:	#2c3033;
+$color-orange:	#e35205;
+
+// -----------------------------------------------------------------------------
+//! Z-indexes
+// -----------------------------------------------------------------------------
+
+$z_index-level6: 120;
+$z_index-level5: 100;
+$z_index-level4: 75;
+$z_index-level3: 50;
+$z_index-level2: 25;
+$z_index-level1: 1;
+$z_index-level0: -1;
+
+// -----------------------------------------------------------------------------
+//! Breakpoints 
+// -----------------------------------------------------------------------------
+
+$breakpoint-nav: 880px;
+$breakpoint-hero-fix: 1600px;
+$breakpoint-type:768px;
+$breakpoint-testimonial-stack: 580px;
+$breakpoint-form: 440px;
+$breakpoint-downloads: 668px;
+$breakpoint-gallery-large: 768px;
+$breakpoint-gallery-small: 460px;
+$breakpoint-specs-nav:	600px;
+
+$breakpoint-hero-title-lg: 1200px;
+$breakpoint-hero-title-md: 900px;
+$breakpoint-hero-title-sm: 510px;
+
+$breakpoint-product-lg: 990px;
+$breakpoint-product-tabs: 860px;
+$breakpoint-product-sm: 500px;
+
+$breakpoint-feature-stack: 768px;
+
+$breakpoint-point: 960px;

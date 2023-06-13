@@ -1,0 +1,24 @@
+body#espanol {
+    .popout-tab {
+        &.demo {
+            width:170px;
+        }
+    }
+    .cd-product-viewer-wrapper .hotspot-modal p span {
+        font-size: $pixels-14;
+    }
+    .specs {
+        .nav-link {
+            &#rangleSpec-tab.active:after {
+                content: 'Ángulo Recto';
+            }
+            &#pistolSpec-tab.active:after {
+                content: 'Tipo Pistola';
+            }
+            &#inlineSpec-tab.active:after {
+                content: 'Recta';
+            }
+        }
+            
+    }
+}

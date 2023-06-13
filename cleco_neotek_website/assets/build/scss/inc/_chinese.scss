@@ -1,0 +1,29 @@
+body#chinese {
+    &, * {
+        &:not(.fas):not(.far):not(.fab) {
+            font-family: 'MHeiPRC-Light';
+        }
+        strong {
+            font-family: 'MHeiPRC-Bold';
+        }
+    }
+    .popout-tab {
+        &.demo {
+            width:170px;
+        }
+    }
+    .specs {
+        .nav-link {
+            &#rangleSpec-tab.active:after {
+                content: '直角弯头式';
+            }
+            &#pistolSpec-tab.active:after {
+                content: '手枪式';
+            }
+            &#inlineSpec-tab.active:after {
+                content: '直柄式';
+            }
+        }
+            
+    }
+}

@@ -1,0 +1,103 @@
+.footer {
+	background-color: #3C3D41;
+	padding: 30px;
+	color: #7D7E82;
+	font-size: 0.9em;
+	
+	.row {
+		text-align: center;
+		@include respond($breakpoint-nav) {
+			display: flex;
+			text-align: left;			
+		}
+	}	
+	
+	.col-md-3 {
+		margin:0 0 32px 0;
+		@include respond($breakpoint-nav) {
+			flex: 0 0 25%;
+			max-width: 25%;	
+			margin:0;		
+		}
+
+	}
+	
+	.col-md-2 {
+		margin:0 0 32px 0;
+		@include respond($breakpoint-nav) {
+			flex: 0 0 16.6666666667%;
+			max-width: 16.6666666667%;
+			margin:0;
+		}
+	}	
+	
+	.logo {
+		max-width: 80%;
+		margin: 0 auto; 
+	}
+	
+	h6{
+		
+	    letter-spacing: .1em;
+	    color: #fff;
+	    margin-bottom: 10px;
+	    line-height: 1rem; 
+	    text-transform: uppercase;
+	    font-family: $font-condensed;
+	    font-weight: 700;
+	    font-size:1.25em;
+	    @include respond($breakpoint-nav) {
+		  font-size: .9em;  
+	    }
+	}
+	p {
+		margin-top: 30px;
+	}
+	a,
+	span {
+		color: #7D7E82;
+	    text-decoration: none;
+	    font-size: 1.125em;
+	    font-weight: 500;
+	    line-height: 2;
+	    @include respond($breakpoint-nav) {
+		  font-size: .8em;
+		  line-height: 1.4;  
+	    }
+	}
+	
+	a:hover {
+		color:#fff;
+	}
+	
+	.socials {
+		text-align: center;
+	}
+	.socials a {
+		width:48px;
+		height:48px;
+		border:2px solid #000;
+		display: inline-block;
+		margin:0 5px;
+		transition: all 0.3s ease;
+		border-radius: 50%;
+		&:hover {
+			border-color: $color-orange;
+			background: $color-orange;
+			svg path {
+				fill: #fff;
+			}
+		}
+	}
+	.socials svg {
+		display: inline-block;
+		width:44px;
+		height:44px;
+		path {
+			fill:#000;
+			transition: fill 0.3s ease;
+		}
+	}
+}
+
+

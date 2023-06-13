@@ -1,0 +1,245 @@
+.demo {
+	background-image: url(../images/demo-bg.jpg);
+	background-repeat: no-repeat;
+	background-color:$color-dark;
+	background-position: center center;
+	background-size:cover;
+	padding:40px 0 80px 0;
+	color:#fff;
+	text-align: center;
+	@include respond($breakpoint-nav) {
+		padding:104px 0 208px 0;
+	}
+}
+
+#waypoint-demo {
+	position: relative;
+	top:100px;
+	opacity: 0;
+	transition: opacity 0.8s ease, top 0.8s ease;
+	&.is-animated {
+		top:0;
+		opacity: 1;
+	}
+}
+
+.demo-title {
+	text-transform: uppercase;
+	letter-spacing: -0.025em;
+	font-family: $font-condensed;
+	font-weight: 700;
+	margin: 0;
+	font-size:3em;
+	line-height: 1;
+	@include respond($breakpoint-type) {
+		font-size:4.125em;
+		line-height: 1.0909090909;
+	}
+}
+
+.demo-subtitle {
+	font-size: 1.25em;
+	line-height: 1.5;
+	margin:32px auto 0 auto;
+	max-width: 460px;
+	font-weight: 500;
+
+}
+
+.demo form {
+	max-width: 476px;
+	margin:32px auto 0 auto;
+}
+
+.form-row {
+
+	@include respond($breakpoint-form) {
+		display: flex;
+	}
+}
+
+.form-field {
+	margin:0;
+	padding:4px 0;
+	text-align: left;
+	@include respond($breakpoint-form) {
+		width: 50%;
+		margin:0;
+		padding:8px;
+		flex: 0 0 50%;
+	}
+	&.title-name {
+		@include respond($breakpoint-form) {
+			width: 15%;
+			flex: 0 0 15%;
+		}
+	}
+}
+
+.form-field .field-label {
+	font-weight: normal;
+	font-size: 12px;
+	line-height: 16px;
+	margin: 0;
+	display: inline-block;
+	transition: top 0.1s ease, transform 0.1s ease;
+	position: relative;
+	top: 32px;
+	transform: scale(1.3333333333);
+	left: 16px;
+	transform-origin: left center;
+	cursor: text;
+}
+
+.form-field.is-filled .field-label {
+	transform: scale(1);
+	top:0;
+	left:0;
+	transition: top 0.0s ease,left 0.0s ease, transform 0.0s ease;
+}
+
+.form-field.is-focused .field-label {
+	transform: scale(1);
+	top:0;
+	left:0;
+	transition: top 0.1s ease, left 0.1s ease, transform 0.1s ease;
+}
+
+
+.form-field input, .form-field select {
+	width: 100%;
+	background:rgba(255,255,255,0.3);
+	line-height: 48px;
+	height:48px;
+	border-radius: 2px;
+	color:#fff;
+	font-size:1.25em;
+	padding:0 16px;
+}
+
+.form-field.has-error input {
+	border: 1px solid tomato;
+}
+
+.form-actions {
+	text-align: right;
+	padding:8px;
+}
+.submit-btn {
+	background-color: $color-orange;
+	cursor: pointer;
+	background-image: url(../images/icn-btn-arrow.png);
+	background-repeat: no-repeat;
+	background-position: 90% center;
+	color:#fff;
+	font-family: $font-condensed;
+	font-size:1em;
+	font-weight: 700;
+	padding:0 60px 0 16px;
+	line-height: 48px;
+	height:48px;
+	text-transform: uppercase;
+	transition: all 0.2s ease;
+	&:hover {
+		background-color: darken($color-orange, 10%);
+		background-position: 95% center;
+	}
+}
+
+.submit-btn:disabled {
+	background-color:#ccc;
+	cursor: not-allowed;
+}
+
+.form-message {
+	padding:16px;
+}
+
+label.error {
+	color: tomato;
+	font-size:12px;
+	padding-top:4px;
+	line-height: 1;
+}
+
+.form-check-input {
+	display: block;
+}
+
+.form-check-label {
+	text-align: left;
+	display:block;
+	padding-left:16px;
+	font-size:14px;
+}
+
+.form-check-holder {
+	margin:0;
+	padding:4px 0;
+	text-align: left;
+	width: 100%;
+	flex: 0 0 100%;
+	-ms-flex: 0 1 auto;
+	display: flex;
+
+	@include respond($breakpoint-form) {
+		margin:0;
+		padding:8px;
+
+	}
+}
+
+
+
+
+.popout-tab {
+	position: fixed;
+	top: 35%;
+	right: -100%;
+	display: block;
+	cursor: pointer;
+	width: 120px;
+	padding: 20px 10px;
+	text-align: center;
+	font-family: $font;
+	font-weight: 500;
+	color: #fff;
+	background-color: #E35205;
+	border-radius: 8px 0 0 8px;
+	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
+	transition: opacity 0.2s ease, transform 0.2s ease;
+	text-transform: uppercase;
+	opacity: 0;
+	z-index: $z_index-level6 + 1;
+}
+
+.popout-tab:hover {
+	transform: scale(1.3) translateX(-12px);
+}
+
+.popout-tab.is-visible {
+    opacity: 1;
+    right: 0 !important;
+}
+
+.popout-tab.is-visible.is-hidden {
+    opacity: 0 !important;
+    right: -100% !important;
+}
+
+@include respond($breakpoint-nav, "down") {
+	.popout-tab {
+	    top: 0;
+	    right: 0;
+        width: 100%;
+        border-radius: 0;
+        padding: 10px;
+        &:hover {
+	        transform: none;
+        }
+
+    }
+    .popout-tab.is-visible {
+    	top: 73px;
+    }
+}
