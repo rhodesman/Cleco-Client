@@ -4,9 +4,7 @@ services:
     image: cleco-sites:latest
     container_name: cleco-sites
     ports:
-      # Host port auto-assigned by Docker (8080 was taken). Find the current
-      # port with:  docker compose port cleco-sites 80
-      # Note: a fresh random port is chosen whenever the container is RECREATED
-      # (e.g. on `up -d --build`); it is stable across restarts/reboots otherwise.
-      - "80"
+      # Fixed host port 8082 (8080 was taken). Stable across rebuilds — point the
+      # reverse proxy here once.
+      - "8082:80"
     restart: unless-stopped
