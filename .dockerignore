@@ -1,0 +1,7 @@
+.git
+**/node_modules
+**/.sass-cache
+**/npm-debug.log
+**/src
+docs
+*.md
