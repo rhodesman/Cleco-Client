@@ -33,6 +33,9 @@ copy_site() {
     --exclude='.sass-cache/' \
     --exclude='error_log' \
     --exclude='*.php' \
+    --exclude='*.scss' \
+    --exclude='*.map' \
+    --exclude='.DS_Store' \
     "$from"/ "$to"/
 }
 
