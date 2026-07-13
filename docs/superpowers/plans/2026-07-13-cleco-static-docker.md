@@ -179,6 +179,25 @@ copy_site() {
     "$from"/ "$to"/
 }
 
+# Rewrite delimiter-anchored absolute refs to a site's OWN top-level directories
+# (e.g. /images/ -> /neotek/images/) across its html/css/js. These sites were authored
+# for a domain root, so their CSS/JS carry absolute /images/, /360_assets/, ... paths
+# that break under a subpath. Anchoring on a preceding delimiter (" ' or () leaves any
+# already-prefixed /<name>/<dir>/ untouched. CellCore is excluded — it has bespoke
+# per-directory /build/ handling in rewrite_cellcore_page.
+prefix_site_absolute_refs() {
+  local dir="$1" name="$2" d base
+  local exprs=()
+  for d in "$dir"/*/; do
+    base="$(basename "$d")"
+    exprs+=(-e "s#([\"'(])/${base}/#\1/${name}/${base}/#g")
+  done
+  [ ${#exprs[@]} -eq 0 ] && return 0
+  find "$dir" -type f \( -name '*.html' -o -name '*.css' -o -name '*.js' \) | while IFS= read -r f; do
+    sed -E "${exprs[@]}" "$f" > "$f.tmp" && mv "$f.tmp" "$f"
+  done
+}
+
 # Generate a CellCore page from its .php source, rewriting absolute /build/ refs.
 # rewrite_cellcore_page <src.php> <dest.html> <asset_prefix> <home_prefix>
 rewrite_cellcore_page() {
@@ -218,6 +237,10 @@ find "$OUT/cellcore" -type f \( -name '*.webmanifest' -o -name 'browserconfig.xm
   build_path="${rel%%/build/*}/build/"   # e.g. cellcore/de/build/
   sed_inplace "s#/build/#/${build_path}#g" "$f"
 done
+
+echo "==> Prefixing absolute asset refs for NeoTek and Grinder (CSS/JS/HTML)"
+prefix_site_absolute_refs "$OUT/neotek"  neotek
+prefix_site_absolute_refs "$OUT/grinder" grinder
 
 echo "==> Fixing NeoTek root links (href=\"/\" -> /neotek/)"
 for f in "$OUT"/neotek/*.html; do
@@ -488,14 +511,27 @@ Expected: every line begins with `200`.
 Run: `curl -s -o /dev/null -w '%{http_code}\n' http://localhost:8080/neotek`
 Expected: `301` (nginx redirects `/neotek` → `/neotek/`, which is what makes NeoTek's relative asset paths resolve).
 
-- [ ] **Step 7: Browser smoke test**
+- [ ] **Step 7: Browser smoke test (check the network panel, not just the eye)**
 
-Open `http://localhost:8080/` and click into each of the three sites. Confirm:
-- Each site renders with CSS, JS, images, and (Grinder/NeoTek) video loading — no broken styling.
-- One language variant per site renders correctly (e.g. `/cellcore/de/`, `/neotek/index-Deutsch.html`, `/grinder/europe.html`).
-- A contact/demo form shows its client-side validation on submit and does **not** navigate away or 404.
+Load each site in a real browser and inspect the network requests for any **local**
+(`localhost:8080`) response that is not `200`/`206`/`301`. This catches absolute asset paths
+that a static grep of HTML misses — the sites carry absolute `/images/`, `/360_assets/`, and
+`/build/` refs in their **CSS** (and `url("/…)` / `url(/360…)` forms), which is exactly the
+class of bug that broke the original deploy.
 
-Expected: all three sites and their language variants render correctly; forms validate but do nothing on submit.
+**Cache caveat:** `nginx.conf` sets `expires 30d` on assets, so after rebuilding the image
+you MUST hard-reload (ignore cache) or you will see stale-CSS 404s that are not real. Verify
+with a cache-bypassing reload.
+
+Confirm for `/`, `/neotek/`, `/grinder/`, `/cellcore/`, and one language variant each
+(`/cellcore/de/`, `/neotek/index-Deutsch.html`, `/grinder/europe.html`):
+- No local request returns 404 (206 for video range requests and 301 for directory
+  redirects are expected and fine; external tracker/ads failures are irrelevant).
+- Each site renders with CSS, JS, images, and (Grinder/NeoTek) video.
+- A contact/demo form validates on submit and does **not** navigate away or 404.
+
+Expected: zero local 404s on every page; all sites and language variants render; forms
+validate but do nothing on submit.
 
 - [ ] **Step 8: Stop the test container**
 

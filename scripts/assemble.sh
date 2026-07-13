@@ -36,6 +36,25 @@ copy_site() {
     "$from"/ "$to"/
 }
 
+# Rewrite delimiter-anchored absolute refs to a site's OWN top-level directories
+# (e.g. /images/ -> /neotek/images/) across its html/css/js. These sites were authored
+# for a domain root, so their CSS/JS carry absolute /images/, /360_assets/, ... paths
+# that break under a subpath. Anchoring on a preceding delimiter (" ' or () leaves any
+# already-prefixed /<name>/<dir>/ untouched. CellCore is excluded — it has bespoke
+# per-directory /build/ handling in rewrite_cellcore_page.
+prefix_site_absolute_refs() {
+  local dir="$1" name="$2" d base
+  local exprs=()
+  for d in "$dir"/*/; do
+    base="$(basename "$d")"
+    exprs+=(-e "s#([\"'(])/${base}/#\1/${name}/${base}/#g")
+  done
+  [ ${#exprs[@]} -eq 0 ] && return 0
+  find "$dir" -type f \( -name '*.html' -o -name '*.css' -o -name '*.js' \) | while IFS= read -r f; do
+    sed -E "${exprs[@]}" "$f" > "$f.tmp" && mv "$f.tmp" "$f"
+  done
+}
+
 # Generate a CellCore page from its .php source, rewriting absolute /build/ refs.
 # rewrite_cellcore_page <src.php> <dest.html> <asset_prefix> <home_prefix>
 rewrite_cellcore_page() {
@@ -75,6 +94,10 @@ find "$OUT/cellcore" -type f \( -name '*.webmanifest' -o -name 'browserconfig.xm
   build_path="${rel%%/build/*}/build/"   # e.g. cellcore/de/build/
   sed_inplace "s#/build/#/${build_path}#g" "$f"
 done
+
+echo "==> Prefixing absolute asset refs for NeoTek and Grinder (CSS/JS/HTML)"
+prefix_site_absolute_refs "$OUT/neotek"  neotek
+prefix_site_absolute_refs "$OUT/grinder" grinder
 
 echo "==> Fixing NeoTek root links (href=\"/\" -> /neotek/)"
 for f in "$OUT"/neotek/*.html; do

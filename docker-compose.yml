@@ -1,0 +1,8 @@
+services:
+  cleco-sites:
+    build: .
+    image: cleco-sites:latest
+    container_name: cleco-sites
+    ports:
+      - "8080:80"
+    restart: unless-stopped
