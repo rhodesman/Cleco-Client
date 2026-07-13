@@ -2,7 +2,7 @@
 
 # ---- Stage 1: assemble the static site tree ----
 FROM alpine:3.20 AS builder
-RUN apk add --no-cache bash rsync
+RUN apk add --no-cache bash rsync perl
 WORKDIR /src
 COPY . /src
 RUN bash scripts/assemble.sh /src /site

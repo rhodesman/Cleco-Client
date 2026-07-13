@@ -39,6 +39,21 @@ copy_site() {
     "$from"/ "$to"/
 }
 
+# Remove analytics/marketing tracker <script>/<noscript> blocks from served HTML.
+# Deletes any script/noscript block whose contents reference a known tracker domain
+# (GTM, which also injects LinkedIn/Bing/DoubleClick/GA at runtime; plus leadmanagerfx
+# and the LinkedIn insight tag). YouTube product embeds are intentionally left intact.
+strip_trackers() {
+  local f
+  find "$OUT" -name '*.html' | while IFS= read -r f; do
+    perl -0777 -pe '
+      s{<script\b[^>]*>(?:(?!</script>).)*?(?:googletagmanager|leadmanagerfx|licdn\.com|_linkedin_partner_id|bat\.bing\.com|doubleclick|google-analytics)(?:(?!</script>).)*?</script>}{}gis;
+      s{<script\b[^>]*\bsrc\s*=\s*[\x22\x27][^\x22\x27]*(?:googletagmanager|leadmanagerfx|licdn\.com|bat\.bing\.com|doubleclick|google-analytics)[^\x22\x27]*[\x22\x27][^>]*>\s*</script>}{}gis;
+      s{<noscript>(?:(?!</noscript>).)*?googletagmanager(?:(?!</noscript>).)*?</noscript>}{}gis;
+    ' "$f" > "$f.tmp" && mv "$f.tmp" "$f"
+  done
+}
+
 # Rewrite delimiter-anchored absolute refs to a site's OWN top-level directories
 # (e.g. /images/ -> /neotek/images/) across its html/css/js. These sites were authored
 # for a domain root, so their CSS/JS carry absolute /images/, /360_assets/, ... paths
@@ -111,6 +126,9 @@ echo "==> Neutralizing local PHP form actions (external http(s) actions left int
 find "$OUT" -name '*.html' | while IFS= read -r f; do
   sed_inplace 's|action="[^"]*\.php"|action="#"|g' "$f"
 done
+
+echo "==> Removing analytics/marketing tracker script blocks"
+strip_trackers
 
 echo "==> Installing branch/index page at site root"
 cp "$SRC/landing/index.html" "$OUT/index.html"
