@@ -78,10 +78,15 @@ prefix_site_absolute_refs() {
 rewrite_cellcore_page() {
   local src="$1" dest="$2" asset_prefix="$3" home_prefix="$4"
   mkdir -p "$(dirname "$dest")"
-  # Rewrite absolute /build/ refs regardless of the delimiter that precedes them:
-  # " and ' for href/src/content attributes, ( for unquoted CSS url(/build/...).
-  # Anchoring on a delimiter avoids re-rewriting an already-prefixed /cellcore/.../build/.
+  # Un-comment the two <?php /* ... */ ?> blocks (video gallery + cordless section)
+  # that were disabled in the PHP source, so they render as designed instead of the
+  # browser mis-parsing the tags. Then rewrite absolute /build/ refs regardless of the
+  # delimiter that precedes them: " and ' for href/src/content attributes, ( for
+  # unquoted CSS url(/build/...). Anchoring on a delimiter avoids re-rewriting an
+  # already-prefixed /cellcore/.../build/.
   sed -E \
+    -e 's#<\?php[[:space:]]*/\*##g' \
+    -e 's#\*/[[:space:]]*\?>##g' \
     -e "s#([\"'(])/build/#\1${asset_prefix}build/#g" \
     -e "s#href=\"/\"#href=\"${home_prefix}\"#g" \
     "$src" > "$dest"
@@ -125,6 +130,13 @@ done
 echo "==> Neutralizing local PHP form actions (external http(s) actions left intact)"
 find "$OUT" -name '*.html' | while IFS= read -r f; do
   sed_inplace 's|action="[^"]*\.php"|action="#"|g' "$f"
+done
+
+echo "==> Upgrading insecure http:// font refs to https (mixed-content fix)"
+# CellCore's theme.min.css @imports Monotype over http://, which HTTPS blocks as mixed
+# content. fonts.net supports https, so upgrade the protocol wherever it appears.
+grep -rlI 'http://fast\.fonts\.net' "$OUT" 2>/dev/null | while IFS= read -r f; do
+  sed_inplace 's#http://fast\.fonts\.net#https://fast.fonts.net#g' "$f"
 done
 
 echo "==> Removing analytics/marketing tracker script blocks"
